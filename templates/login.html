@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Plate Trail Tracer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 class="page-title">Register Your Organization</h1>
+    <div class="form">
+        <form action="/login/" method="POST">
+            <input type="email" name="org_email" placeholder="Enter Organization Email Address"/>
+            <input type="password" name="password" placeholder="Password"/>
+            <input type="submit" value="Login"/>
+        </form>
+    </div>
+    <p>Not a member?<a href="/register/">Register</a></p>
+
+    {% if message %}
+    <p class="msg">{{message}}</p>
+    {% endif %}
+
+</div>
+{% endblock %}

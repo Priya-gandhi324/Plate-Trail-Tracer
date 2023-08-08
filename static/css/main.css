@@ -1,0 +1,136 @@
+body, h1, h2, h3, h4, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content img{
+    width: auto;
+    height: 400px;
+}
+
+.form {
+    margin: 20px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+label {
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff7f50;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+h4 {
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 8px 8px 0 0;
+    color: #ffffff;
+}
+
+.navbar-brand a {
+    font-size: 24px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.navbar-brand img {
+    height: 1.5rem;
+    width: auto;
+    margin-right: 1rem;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-links a {
+    margin-left: 15px;
+    color: #ffffff;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.links a {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #ff7f50;
+    border: 1px solid #ff7f50;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.links a:hover {
+    background-color: #ff7f50;
+    color: #ffffff;
+}
+
+.content p {
+    background-color: rgb(196, 35, 35);
+    color: #ffffff;
+    margin: 10px;
+    padding: 4px;
+}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Plate Trail Tracer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="static/images/logo.svg" class="h-14 w-100 mr-3" alt="PPT Logo" />
+            <a href="/">Plate Trail Tracer</a>
+        </div>
+        <div class="navbar-links">
+            <a href="/register/">Register</a>
+            <a href="/login/">Login</a>
+        </div>
+    </nav>
+    <div class="form">
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label for="image">Upload car plate image:</label>
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    {% if converted_img_path %}
+    <img src="{{ converted_img_path }}" alt="Converted Image"/>
+    {% endif %}
+
+    <h1>Confirmed Registration in Organizations</h1>
+
+    {% if registrations|length < 1 %}
+    <h4>No records found</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Vehicle Number Plate</th>
+            <th>Registered Organization</th>
+            <th>Organization Address</th>
+            <th>Date of Entry</th>
+        </tr>
+        {% for registration in registrations %}
+        <tr>
+            <td>{{ registration.vehicle_number_plate }}</td>
+            <td>{{ registration.organization.org_name }}</td>
+            <td>{{ registration.organization.org_address }}</td>
+            <td>{{ registration.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    {% if message %}
+    <p>{{message}}</p>
+    {% endif %}
+</div>
+{% endblock %}

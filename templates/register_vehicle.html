@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Plate Trail Tracer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 class="page-title">Register Vehicle</h1>
+    <div class="form">
+        <form action="/register_vehicle/" method="POST" enctype="multipart/form-data">
+            <label for="image">Upload car plate image for automatic registration: </label>
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    {% if converted_img_path %}
+    <img src="../{{ converted_img_path }}" alt="Converted Image"/>
+    {% endif %}
+
+    {% if message %}
+        {% if success %}
+        <p class="success">{{message}}</p>
+        {% else %}
+        <p>{{message}}</p>
+        {% endif %}
+    {% endif %}
+
+    <a href="/">Back to Home</a>
+</div>
+{% endblock %}
