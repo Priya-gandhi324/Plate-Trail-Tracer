@@ -4,10 +4,9 @@ PlateTrailTracer is an innovative Tracking and Registration System built using A
 
 ## Watch the Demo Video
 
-[![PlateTrailTracer Demo Video)]([https://www.youtube.com/watch?v=your_video_id_here](https://youtu.be/kJCJbjaLWqc))
+[![PlateTrailTracer Demo Video](https://github.com/Priya-gandhi324/PlateTrailTracer/assets/57464906/48d446ef-7826-40f4-a661-47e813ac0a78)](https://www.youtube.com/watch?v=kJCJbjaLWqc)
 
 Click the image above to watch the demo video on YouTube.
-
 
 ## Features
 - Vehicle Registration: Organizations can register and upload car images to confirm their location.
