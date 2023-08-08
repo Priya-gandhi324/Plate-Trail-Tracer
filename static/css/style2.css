@@ -33,6 +33,12 @@ form {
     align-items: center;
 }
 
+img {
+    height: 400px;
+    width: auto;
+    margin-right: 1rem;
+}
+
 label {
     margin-right: 10px;
 }

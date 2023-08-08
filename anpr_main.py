@@ -54,7 +54,7 @@ def anpr_processing(img):
             cropped_img = gray[x1:x2 + 1, y1:y2 + 1]
             
             # pass the language
-            reader = easyocr.Reader(['en'])
+            reader = easyocr.Reader(['tr'])
             result = reader.readtext(cropped_img)
             
             if result:
@@ -66,7 +66,7 @@ def anpr_processing(img):
                 # draw rectangle
                 res = cv2.rectangle(img, tuple(approx[0][0]), tuple(approx[2][0]), (0, 255, 0), 2)
                 converted_img_path = os.path.join(DETECTED_FOLDER, 'converted_img.jpg')
-                cv2.imwrite(converted_img_path, cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
+                cv2.imwrite(converted_img_path, res)
             else:
                 message = 'The number plate is not extractable'
         else:
