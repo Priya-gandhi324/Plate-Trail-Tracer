@@ -4,7 +4,7 @@ PlateTrailTracer is an innovative Tracking and Registration System built using A
 
 ## Watch the Demo Video
 
-[![PlateTrailTracer Demo Video](https://github.com/Priya-gandhi324/PlateTrailTracer/assets/57464906/48d446ef-7826-40f4-a661-47e813ac0a78)](https://www.youtube.com/watch?v=kJCJbjaLWqc)
+[![PlateTrailTracer Demo Video](https://user-images.githubusercontent.com/57464906/259199819-cc9420aa-8b5e-4846-8d65-4f297f144745.png)](https://www.youtube.com/watch?v=35CU3QihctY)
 
 Click the image above to watch the demo video on YouTube.
 
