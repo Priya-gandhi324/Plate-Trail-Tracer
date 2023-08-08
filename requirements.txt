@@ -42,9 +42,9 @@ six==1.16.0
 SQLAlchemy==2.0.19
 sympy==1.11.1
 tifffile==2023.7.18
-torch==2.0.1+cu117
-torchaudio==2.0.2+cu117
-torchvision==0.15.2+cu117
+torch==2.0.1
+torchaudio==2.0.2
+torchvision==0.15.2
 typing_extensions==4.7.1
 urllib3==1.26.13
 Werkzeug==2.3.6
