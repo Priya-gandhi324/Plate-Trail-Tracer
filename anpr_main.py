@@ -56,14 +56,11 @@ def anpr_processing(img):
             # pass the language
             reader = easyocr.Reader(['en'])
             result = reader.readtext(cropped_img)
-            print(result)
             
             if result:
                 text = result[0][-2]
-                print('Number Plate: ', text)
                 
                 font = cv2.FONT_HERSHEY_SIMPLEX
-                print(approx)
                 res = cv2.putText(img, text=text, org=(approx[0][0][0], approx[1][0][1] + 40), fontFace=font, fontScale=0.8, color=(0, 255, 0), thickness=2, lineType=cv2.LINE_AA)
                 
                 # draw rectangle
