@@ -9,18 +9,13 @@ def anpr_processing(img):
     try:
         text, converted_img_path, message = None, None, None
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-        # plt.imshow(cv2.cvtColor(gray, cv2.COLOR_BGR2RGB))
-        # plt.show()
         
         # kernal size and default sigma x
         gblur = cv2.GaussianBlur(gray, (5,5), 0)
         
         # threshold lower, upper
         edged = cv2.Canny(gblur, 30, 200)
-        # plt.imshow(cv2.cvtColor(edged, cv2.COLOR_BGR2RGB))
-        # plt.show()
-        
+
         #shallow copy, tree form gives levels of contour, approximately how they look
         keypoints = cv2.findContours(edged.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         contours = imutils.grab_contours(keypoints)
@@ -37,14 +32,11 @@ def anpr_processing(img):
             
             # if our approximation has 4 keypoints - rectangle
             if len(approx) == 4:
+                # coordinates
                 location = approx
                 break
-        
-        # coordinates
-        print(location)
-        
-        # masking
-        
+
+        # masking        
         # 2D shape by gray image of empty mask and how to fill it in (blank zeros)
         mask = np.zeros(gray.shape, np.uint8)
         
@@ -56,16 +48,10 @@ def anpr_processing(img):
             # overlay the mask and gets segment of the image
             new_image = cv2.bitwise_and(img, img, mask=mask)
             
-            # plt.imshow(cv2.cvtColor(new_image, cv2.COLOR_BGR2RGB))
-            # plt.show()
-            
             x, y = np.where(mask==255)
             x1, y1 = np.min(x), np.min(y)
             x2, y2 = np.max(x), np.max(y)
             cropped_img = gray[x1:x2 + 1, y1:y2 + 1]
-            
-            # plt.imshow(cv2.cvtColor(cropped_img, cv2.COLOR_BGR2RGB))
-            # plt.show()
             
             # pass the language
             reader = easyocr.Reader(['en'])
@@ -82,8 +68,6 @@ def anpr_processing(img):
                 
                 # draw rectangle
                 res = cv2.rectangle(img, tuple(approx[0][0]), tuple(approx[2][0]), (0, 255, 0), 2)
-                # plt.imshow(cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
-                # plt.show()
                 converted_img_path = os.path.join(DETECTED_FOLDER, 'converted_img.jpg')
                 cv2.imwrite(converted_img_path, cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
             else:
