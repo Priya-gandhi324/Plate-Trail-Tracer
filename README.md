@@ -17,10 +17,4 @@ Click the image above to watch the demo video on YouTube.
 - Flask
 - OpenCV
 - EasyOCR
-- SQLAlchemy (for database management)
-
-## How to Use
-1. Install the required dependencies by running `pip install -r requirements.txt`.
-2. Run the Flask app using the command `python app.py`.
-3. Access the web application by visiting `http://localhost:5000` in your web browser.
-4. Register your organization and start uploading car images for confirmation and tracking.
+- SQLAlchemy
