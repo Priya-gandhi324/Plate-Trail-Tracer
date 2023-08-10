@@ -66,7 +66,7 @@ def index():
         vehicle_number_plate, converted_img_path, message = vehicle.get('text'), vehicle.get('converted_img_path'), vehicle.get('message')
         registrations = []
         if vehicle_number_plate:
-            registrations = VehicleRegistration.query.filter_by(vehicle_number_plate=vehicle_number_plate).all()
+            registrations = VehicleRegistration.query.filter_by(vehicle_number_plate=vehicle_number_plate).order_by(VehicleRegistration.date_created.desc()).all()
         return render_template('index.html', registrations=registrations, converted_img_path=converted_img_path, message=message)
         
     else:

@@ -1,4 +1,4 @@
-import cv2, imutils, easyocr, os
+import cv2, imutils, easyocr, os, re
 from matplotlib import pyplot as plt
 import numpy as np
 
@@ -7,14 +7,14 @@ os.makedirs(DETECTED_FOLDER, exist_ok=True)
 
 def anpr_processing(img):
     try:
-        text, converted_img_path, message = None, None, None
+        filtered_text, converted_img_path, message = None, None, None
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        
-        # kernal size and default sigma x
-        gblur = cv2.GaussianBlur(gray, (5,5), 0)
+
+        filtered_img = cv2.bilateralFilter(gray, 11, 17, 17) #Noise reduction
+        # filtered_img = cv2.GaussianBlur(gray, (5,5), 0)
         
         # threshold lower, upper
-        edged = cv2.Canny(gblur, 30, 200)
+        edged = cv2.Canny(filtered_img, 30, 200)
 
         #shallow copy, tree form gives levels of contour, approximately how they look
         keypoints = cv2.findContours(edged.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -59,12 +59,14 @@ def anpr_processing(img):
             
             if result:
                 text = result[0][-2]
+                filtered_text = only_alphanum(text)
                 
                 font = cv2.FONT_HERSHEY_SIMPLEX
-                res = cv2.putText(img, text=text, org=(approx[0][0][0], approx[1][0][1] + 40), fontFace=font, fontScale=0.8, color=(0, 255, 0), thickness=2, lineType=cv2.LINE_AA)
+                res = cv2.putText(img, text=filtered_text, org=(approx[0][0][0], approx[1][0][1] + 30), fontFace=font, fontScale=0.8, color=(0, 255, 0), thickness=2, lineType=cv2.LINE_AA)
                 
                 # draw rectangle
                 res = cv2.rectangle(img, tuple(approx[0][0]), tuple(approx[2][0]), (0, 255, 0), 2)
+                
                 converted_img_path = os.path.join(DETECTED_FOLDER, 'converted_img.jpg')
                 cv2.imwrite(converted_img_path, res)
             else:
@@ -75,11 +77,13 @@ def anpr_processing(img):
     except:
         message = "Error"
 
-    return {'text': text, 'converted_img_path': converted_img_path, 'message': message}
+    return {'text': filtered_text, 'converted_img_path': converted_img_path, 'message': message}
 
 
-def anpr_processing2(img):
-    return {'result': 'IZA-6106', 'converted_img_path': '/static/images/logo2.png', 'message': None}
+def only_alphanum(input_string):
+    alphanumeric_letters = re.findall(r'[a-zA-Z0-9]+', input_string)
+    result = ''.join(alphanumeric_letters)
+    return result
         
 
 if __name__ == "__main__":
