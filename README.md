@@ -1,4 +1,4 @@
-# PlateTrailTracer - Vehicle Tracking and Registration System
+# Smart Tracker: Plate Trail Tracer
 
 PlateTrailTracer is an innovative Tracking and Registration System built using Automated Number Plate Detection. This Flask-based solution allows organizations to easily register vehicles and upload car images to confirm their location.
 
