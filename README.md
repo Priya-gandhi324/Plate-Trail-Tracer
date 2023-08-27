@@ -1,6 +1,6 @@
-# Smart Tracker: Automated Number Plate Trail Tracer
+# Pro-Tracker
 
-Smart Tracker is an innovative Tracking and Registration System built using Automated Number Plate Detection. This Flask-based solution allows organizations to easily register vehicles and upload car images to confirm their location.
+Pro-Tracker is an innovative Tracking and Registration System built using Automated Number Plate Recognition (ANPR). This Flask-based solution allows organizations to easily register vehicles and upload car images to confirm their location.
 
 ## Watch the Demo Video
 
