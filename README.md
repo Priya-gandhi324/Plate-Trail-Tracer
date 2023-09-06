@@ -1,6 +1,5 @@
-# Pro-Tracker
-
-Pro-Tracker is an innovative Tracking and Registration System built using Automated Number Plate Recognition (ANPR). This Flask-based solution allows organizations to easily register vehicles and upload car images to confirm their location.
+# Plate Trail Tracer
+Plate Trail Tracer is an innovative Tracking and Registration System built using Automated Number Plate Recognition (ANPR). This Flask-based solution allows organizations to easily register vehicles and upload car images to confirm their location.
 
 ## Watch the Demo Video
 
