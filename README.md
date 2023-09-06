@@ -1,5 +1,5 @@
 # Plate Trail Tracer
-Plate Trail Tracer is an innovative Tracking and Registration System built using Automated Number Plate Recognition (ANPR). This Flask-based solution allows organizations to easily access vehicle locations for security and surveillance purposes. Thus, preventing criminal acts.
+Plate Trail Tracer is an innovative Tracking and Registration System built using Automated Number Plate Recognition (ANPR). This Flask-based solution that allows highway patrol and security forces to easily access vehicle locations for surveillance and monitoring purposes.
 
 ## Watch the Demo Video
 
